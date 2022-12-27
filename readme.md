@@ -1,4 +1,4 @@
-# string-width
+# string-width-sw
 
 > Get the visual width of a string - the number of columns required to display it
 
@@ -19,7 +19,7 @@ import {
     stringWidth,
     hasEmoji,
     hasArabic
-} from 'string-width';
+} from 'string-width-sw';
 
 stringWidth('a');
 //=> 1
