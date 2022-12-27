@@ -70,3 +70,13 @@ export function hasEmoji(string) {
 	const nLen = string.length;
 	return oLen - nLen > 0;
 }
+
+export function hasArabic(string) {
+	for (let i = 0, len = string.length; i < len; i++) {
+		const codePoint = string[i].codePointAt(0);
+		if (codePoint >= 0x0600 && codePoint <= 0x06FF) {
+			return true;
+		}
+	}
+	return false;
+}
