@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Map - Display a map</title>
+<style type="text/css">
+    html,
+    body {
+        margin: 0px;
+        height: 100%;
+        width: 100%
+    }
+
+    .container {
+        width: 100%;
+        height: 100%
+    }
+</style>
+<script type="text/javascript" src="./../dist/string-width.js"></script>
+
+<body>
+
+
+    <script>
+        const { stringWidth } = sw;
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const fontSize = 22;
+        ctx.font = `${fontSize}px serif`;
+        const tests = [
+            'China to manage COVID-19 with measures \n against Class B infectious diseases号青莲居士',
+            'hello大家好jlfjalj23840284xxxxx',
+            'abc-xxx中国c,,,ssjl',
+            'jfaljxx,xxx  嚓擦礤嚓擦礤  どうほうげん',
+            '李白（701年2月28日—762年12月）， [38]  字太白，号青莲居士',
+            'ないりくほっかいどうほうげん',
+            'ないりくほっかいどうほうげん号青莲居士',
+            'Avión de pasajeros C919 de China inicia proceso de vuelo de validación',
+            'Chine : un nouveau chemin de fer à grande vitesse mis en service au Hunan',
+            'الانتخابية ستتواصل والشعب سيقول كلمته',
+            'Си Цзиньпин подчеркнул важность обеспечения безопасности и здоровья людей',
+            '長江河口に「大樹」が出現　江蘇省張家港市',
+            '시진핑 주석, 애국위생운동 70주년 맞아 "인민의 생명 안전과 건강 보호" 지시',
+            '242342第二期金磚243775國家媒體培訓班開班',
+            // '👍👍👍👍👍👍👍👩👩👩👩👩👩'
+        ];
+
+        tests.forEach(text => {
+            console.log(text);
+            const tm = ctx.measureText(text);
+            const len = stringWidth(text, { ambiguousIsNarrow: false });
+            console.log(tm.width, len * fontSize / 2);
+        });
+
+        function perf() {
+            const time = 'measureText';
+            console.time(time);
+            for (let i = 0, len = 10000; i < len; i++) {
+                tests.forEach(text => {
+                    const tm = ctx.measureText(text);
+                });
+            }
+            console.timeEnd(time);
+
+            const time1 = 'stringWidth';
+            console.time(time1);
+            for (let i = 0, len = 10000; i < len; i++) {
+                tests.forEach(text => {
+                    const len = stringWidth(text, { ambiguousIsNarrow: false });
+                });
+            }
+            console.timeEnd(time1);
+        }
+        perf();
+
+
+    </script>
+</body>
+
+</html>
