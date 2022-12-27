@@ -22,7 +22,7 @@
 
 
     <script>
-        const { stringWidth } = sw;
+        const { stringWidth, hasEmoji, hasArabic } = sw;
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
         const fontSize = 22;
@@ -42,10 +42,14 @@
             '長江河口に「大樹」が出現　江蘇省張家港市',
             '시진핑 주석, 애국위생운동 70주년 맞아 "인민의 생명 안전과 건강 보호" 지시',
             '242342第二期金磚243775國家媒體培訓班開班',
-            // '👍👍👍👍👍👍👍👩👩👩👩👩👩'
+            '👍fasfdrwerxcvc國家媒體培訓班開班',
+            'fjaldfjwervcjl..sjflasfjxxxfjalrjwlj802و'
         ];
 
         tests.forEach(text => {
+            if (hasEmoji(text) || hasArabic(text)) {
+                return;
+            }
             console.log(text);
             const tm = ctx.measureText(text);
             const len = stringWidth(text, { ambiguousIsNarrow: false });

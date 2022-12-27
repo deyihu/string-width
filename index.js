@@ -19,15 +19,8 @@ export function stringWidth(string, options = {}) {
 		return 0;
 	}
 
-	// const oLen = string.length;
-	// string = string.replace(emojiRegex(), '');
-	// const nLen = string.length;
-
 	const ambiguousCharacterWidth = options.ambiguousIsNarrow ? 1 : 2;
 	let width = 0;
-	// if (oLen - nLen > 0) {
-	// 	width = (oLen - nLen) * 1.235;
-	// }
 
 	for (let i = 0, len = string.length; i < len; i++) {
 		const character = string[i];

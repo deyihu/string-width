@@ -15,7 +15,11 @@ $ npm install string-width
 ## Usage
 
 ```js
-import stringWidth from 'string-width';
+import {
+    stringWidth,
+    hasEmoji,
+    hasArabic
+} from 'string-width';
 
 stringWidth('a');
 //=> 1
@@ -25,6 +29,11 @@ stringWidth('古');
 
 stringWidth('\u001B[1m古\u001B[22m');
 //=> 2
+
+hasEmoji('👍fas')
+//=> true
+hasArabic('والشعب')
+//=>true
 ```
 
 ## API
@@ -43,20 +52,21 @@ Type: `object`
 
 ##### ambiguousIsNarrow
 
-Type: `boolean`\
+Type: `boolean` \
 Default: `false`
 
 Count [ambiguous width characters](https://www.unicode.org/reports/tr11/#Ambiguous) as having narrow width (count of 1) instead of wide width (count of 2).
 
 ## Related
 
-- [string-width-cli](https://github.com/sindresorhus/string-width-cli) - CLI for this module
-- [string-length](https://github.com/sindresorhus/string-length) - Get the real length of a string
-- [widest-line](https://github.com/sindresorhus/widest-line) - Get the visual width of the widest line in a string
+* [string-width-cli](https://github.com/sindresorhus/string-width-cli) - CLI for this module
+* [string-length](https://github.com/sindresorhus/string-length) - Get the real length of a string
+* [widest-line](https://github.com/sindresorhus/widest-line) - Get the visual width of the widest line in a string
 
 ---
 
 <div align="center">
+
 	<b>
 		<a href="https://tidelift.com/subscription/pkg/npm-string-width?utm_source=npm-string-width&utm_medium=referral&utm_campaign=readme">Get professional support for this package with a Tidelift subscription</a>
 	</b>
@@ -64,4 +74,5 @@ Count [ambiguous width characters](https://www.unicode.org/reports/tr11/#Ambiguo
 	<sub>
 		Tidelift helps make open source sustainable for maintainers while giving companies<br>assurances about security, maintenance, and licensing for their dependencies.
 	</sub>
+
 </div>
