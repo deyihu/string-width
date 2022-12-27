@@ -1,6 +1,6 @@
 // import stripAnsi from 'strip-ansi';
 import eastAsianWidth from 'eastasianwidth';
-// import emojiRegex from 'emoji-regex';
+import emojiRegex from 'emoji-regex';
 
 const SPECIAL_CHARS = ['à', 'ó'];
 
@@ -62,4 +62,11 @@ export function stringWidth(string, options = {}) {
 	}
 
 	return width;
+}
+
+export function hasEmoji(string) {
+	const oLen = string.length;
+	string = string.replace(emojiRegex(), '');
+	const nLen = string.length;
+	return oLen - nLen > 0;
 }
