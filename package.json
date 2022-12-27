@@ -1,5 +1,5 @@
 {
-	"name": "string-width",
+	"name": "string-width-sw",
 	"version": "5.1.2",
 	"description": "Get the visual width of a string - the number of columns required to display it",
 	"license": "MIT",
@@ -12,6 +12,8 @@
 	},
 	"type": "module",
 	"exports": "./index.js",
+	"main": "./index.js",
+	"module": "./index.js",
 	"engines": {
 		"node": ">=12"
 	},
